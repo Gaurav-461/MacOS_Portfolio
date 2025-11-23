@@ -3,9 +3,9 @@ import Navbar from "#components/Navbar.jsx";
 
 const App = () => {
     return (
-        <div className=''>
+        <main>
             <Navbar />
-        </div>
+        </main>
     )
 }
 
