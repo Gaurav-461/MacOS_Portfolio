@@ -4,8 +4,10 @@ import gsap from "gsap"
 
 import {dockApps} from "#constants/index.js";
 import {useGSAP} from "@gsap/react";
+import useWindowStore from "#store/window.js";
 
 const Dock = () => {
+    const {openWindow, closeWindow, windows} = useWindowStore();
     const dockRef = useRef(null);
 
     useGSAP(() => {
@@ -55,7 +57,23 @@ const Dock = () => {
 
     const toggleApp = (app) => {
         // TODO: Implement open window logic
+        if(!app.canOpen) return;
+
+        const window = windows[app.id]
+
+        if(!window) {
+            console.error("Window not found", app.id);
+            return;
+        }
+
+        if (window.isOpen) {
+            closeWindow(app.id);
+        } else {
+            openWindow(app.id);
+        }
+
     }
+    console.log(windows)
     return (
         <section id="dock">
             <div ref={dockRef} className="dock-container">
@@ -63,7 +81,7 @@ const Dock = () => {
                     <div key={id} className="relative flex items-center">
                         <button
                             type="button"
-                            className="dock-icon"
+                            className={`dock-icon ${windows[id]?.isOpen ? 'after:w-2 after:size-1 after:bg-white after:absolute after:-bottom-1 after:left-[24px] after:rounded-full' : ''}`}
                             aria-label={name}
                             data-tooltip-id="dock-tooltip"
                             data-tooltip-content={name}
