@@ -4,9 +4,8 @@ import useWindowStore from "#store/window.js";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import Draggable from "gsap/Draggable";
-import {WindowsControls} from "#components/index.js";
 
-const WindowWrapper = (Component, windowKey, headerName) => {
+const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const {focusWindow, windows} = useWindowStore();
         const {isOpen, zIndex} = windows[windowKey];
@@ -51,10 +50,6 @@ const WindowWrapper = (Component, windowKey, headerName) => {
 
         return (
             <section id={windowKey} ref={ref} style={{zIndex}} className="absolute">
-                <div id="window-header">
-                    <WindowsControls targetWindow={windowKey} />
-                    <h2>{headerName}</h2>
-                </div>
                 <Component {...props}/>
             </section>
         )

@@ -73,7 +73,6 @@ const Dock = () => {
         }
 
     }
-    console.log(windows)
     return (
         <section id="dock">
             <div ref={dockRef} className="dock-container">
@@ -81,7 +80,7 @@ const Dock = () => {
                     <div key={id} className="relative flex items-center">
                         <button
                             type="button"
-                            className={`dock-icon ${windows[id]?.isOpen ? 'after:w-2 after:size-1 after:bg-white after:absolute after:-bottom-1 after:left-[24px] after:rounded-full' : ''}`}
+                            className={`dock-icon ${windows[id]?.isOpen ? 'after:w-2 after:size-1 after:bg-white after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:rounded-full' : ''}`}
                             aria-label={name}
                             data-tooltip-id="dock-tooltip"
                             data-tooltip-content={name}

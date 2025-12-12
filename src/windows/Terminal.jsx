@@ -1,10 +1,15 @@
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
 import {techStack} from "#constants/index.js";
 import {Check, Flag} from "lucide-react";
+import {WindowsControls} from "#components/index.js";
 
 const Terminal = () => {
     return (
         <>
+            <div id="window-header">
+                <WindowsControls targetWindow="terminal"/>
+                <div>Tech Stack</div>
+            </div>
             <div className="techstack">
                 <p>
                     <span>@gaurav % show tech stack</span>
