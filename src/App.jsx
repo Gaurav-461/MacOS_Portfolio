@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Draggable } from "gsap/Draggable";
 
-import { Navbar, Welcome, Dock } from "#components";
+import { Navbar, Welcome, Dock, Home } from "#components";
 import {
   TerminalWindow,
   SafariWindow,
@@ -21,6 +21,7 @@ const App = () => {
       <Navbar />
       <Welcome />
       <Dock />
+
       <TerminalWindow />
       <SafariWindow />
       <ResumeWindow />
@@ -28,6 +29,8 @@ const App = () => {
       <TextWindow />
       <ImageWindow />
       <ContactWindow />
+
+      <Home />
     </main>
   );
 };
